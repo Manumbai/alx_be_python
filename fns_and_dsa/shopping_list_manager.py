@@ -8,41 +8,38 @@ def display_menu():
 
 def main():
     """Manages the shopping list functionality."""
-    shopping_list = []  # Create an empty shopping list
+    shopping_list = []
     while True:
         display_menu()
-        choice = input("Enter your choice: ")
+        try:  # Use a try-except block for input validation
+            choice = int(input("Enter your choice: "))  # Convert input to integer
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 4.")
+            continue  # Go back to the beginning of the loop
 
-        if choice == '1':
-            # Logic to add an item (replace with actual implementation)
+        if choice == 1:  # Compare with integers now
             item_to_add = input("Enter item name: ")
-            shopping_list.append(item_to_add)  # Example: Simple appending
+            shopping_list.append(item_to_add)
             print(f"{item_to_add} added to the list.")
-
-        elif choice == '2':
-            # Logic to remove an item (replace with actual implementation)
+        elif choice == 2:
             item_to_remove = input("Enter item name to remove: ")
             if item_to_remove in shopping_list:
                 shopping_list.remove(item_to_remove)
                 print(f"{item_to_remove} removed from the list.")
             else:
                 print(f"Item '{item_to_remove}' not found in the list.")
-
-        elif choice == '3':
-            # Logic to display the shopping list (replace with actual implementation)
+        elif choice == 3:
             if shopping_list:
                 print("Shopping List:")
                 for item in shopping_list:
                     print(f"- {item}")
             else:
                 print("The shopping list is empty.")
-
-        elif choice == '4':
+        elif choice == 4:
             print("Goodbye!")
             break
-
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid choice. Please enter a number between 1 and 4.")
 
 if __name__ == "__main__":
     main()
