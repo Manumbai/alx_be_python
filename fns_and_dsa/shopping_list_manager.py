@@ -18,7 +18,7 @@ def main():
             continue  # Go back to the beginning of the loop
 
         if choice == 1:  # Compare with integers now
-            item_to_add = input("Enter item name: ")
+            item_to_add = input("Enter the item to add: ")
             shopping_list.append(item_to_add)
             print(f"{item_to_add} added to the list.")
         elif choice == 2:
